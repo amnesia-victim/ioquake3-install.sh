@@ -10,7 +10,6 @@
 set -e # exit on error
 
 cd $HOME
-#git clone https://github.com/nrempel/q3-server.git
 
 git clone https://github.com/ioquake/ioq3
 
@@ -25,7 +24,6 @@ cd /Applications/ioquake3/baseq3
 
 COUNT=0
 while [ $COUNT -lt 9 ]; do
-#    curl http://files.anitalink.com/gamecache/quake3/baseq3/pak$COUNT.pk3 > pak$COUNT.pk3
     wget https://github.com/nrempel/q3-server/raw/master/baseq3/pak$COUNT.pk3 -O  pak$COUNT.pk3
     let COUNT+=1
 done
@@ -34,9 +32,6 @@ echo "Quake 3: Arena installation successful!"
 
 rm -R $HOME/ioq3
 
-read -p "Do you want to start the game now? (y/n) " -n 1 -r
 
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    open /Applications/ioquake3/ioquake3.app
-fi
+echo "To run ioquake3 use open "
+echo "/Applications/ioquake3/ioquake3.app"
