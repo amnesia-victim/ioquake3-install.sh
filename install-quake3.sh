@@ -33,5 +33,5 @@ echo "Quake 3: Arena installation successful!"
 rm -R $HOME/ioq3
 
 
-echo "To run ioquake3 use open "
-echo "/Applications/ioquake3/ioquake3.app"
+echo "To run ioquake3 use"
+echo "open /Applications/ioquake3/ioquake3.app"
