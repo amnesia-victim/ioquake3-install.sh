@@ -30,7 +30,7 @@ done
 
 echo "Quake 3: Arena installation successful!"
 
-rm -R $HOME/ioq3
+rm -rf $HOME/ioq3
 
 
 echo "To run ioquake3 use"
