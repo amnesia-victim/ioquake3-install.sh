@@ -22,11 +22,10 @@ cp -R release-darwin-x86_64/ /Applications/ioquake3
 
 cd /Applications/ioquake3/baseq3
 
-COUNT=0
-while [ $COUNT -lt 9 ]; do
-    wget https://github.com/nrempel/q3-server/raw/master/baseq3/pak$COUNT.pk3 -O  pak$COUNT.pk3
-    let COUNT+=1
-done
+# Download all pk3 in parallel, 3 at a time:
+echo {0..8} | tr ' ' '\n' | xargs -L1 -P3 -I% \
+  wget -q --show-progress \
+  https://github.com/nrempel/q3-server/raw/master/baseq3/pak%.pk3 -O pak%.pk3
 
 echo "Quake 3: Arena installation successful!"
 
