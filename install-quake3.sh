@@ -7,11 +7,13 @@
 # The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-set -e # exit on error
+# Exit on error, on underfined variable, propagate non-zero exit code through pipeline
+set -euo pipefail
 
 cd $HOME
 
-git clone https://github.com/ioquake/ioq3
+# Shallow clone
+git clone --depth=1 https://github.com/ioquake/ioq3
 
 cd ioq3
 
@@ -31,6 +33,4 @@ echo "Quake 3: Arena installation successful!"
 
 rm -rf $HOME/ioq3
 
-
-echo "To run ioquake3 use"
-echo "open /Applications/ioquake3/ioquake3.app"
+echo "To run ioquake3 use /Applications/ioquake3/ioquake3.app"
